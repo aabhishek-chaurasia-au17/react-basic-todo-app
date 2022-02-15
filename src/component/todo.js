@@ -23,9 +23,9 @@ const Todo = () => {
     <>
         <div className="container">
             <form>
-                <div class="input-group mb-3 mt-5">
-                    <input type="text" class="form-control" name='task' onChange={addTask} placeholder="Enter Task" aria-describedby="button-addon2"/>
-                    <button class="btn btn-primary" type="button" onClick={submitTask} id="button-addon2">Add Task</button>
+                <div className="input-group mb-3 mt-5">
+                    <input type="text" className="form-control" name='task' onChange={addTask} placeholder="Enter Task" aria-describedby="button-addon2"/>
+                    <button className="btn btn-primary" type="button" onClick={submitTask} id="button-addon2">Add Task</button>
                 </div>
             </form>
         </div>
@@ -35,10 +35,10 @@ const Todo = () => {
             store.map((element, index) => {
              const {task} = element || {}
                return <div className="container">
-                    <div class="card mt-3">
-                    <div class="row pt-2">
-                        <div className="col-11"> <h5 class="card-title p-2">{task}</h5></div>
-                        <div className="col-1"> <button type="button" onClick={() => deleteTask(index)} class="btn btn-danger">Delete</button></div>
+                    <div className="card mt-3">
+                    <div className="row pt-2">
+                        <div className="col-11"> <h5 className="card-title p-2">{task}</h5></div>
+                        <div className="col-1"> <button type="button" onClick={() => deleteTask(index)} className="btn btn-danger">Delete</button></div>
                     </div>
                     </div>
                 </div>
