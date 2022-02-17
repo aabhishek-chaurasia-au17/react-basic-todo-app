@@ -2,7 +2,7 @@ import React from 'react'
 import TodoComplited from './TodoComplited'
 import TodoIncomlited from './TodoIncomlited'
 
-const TodoInput = ({setInputValue, submitTask, store, completedTodo, deleteTask, editTask}) => {
+const TodoInput = ({inputValue, setInputValue, submitTask, items, completedTodo, deleteTask, editTask}) => {
   
   return (<>
     <div className="container">
@@ -11,8 +11,9 @@ const TodoInput = ({setInputValue, submitTask, store, completedTodo, deleteTask,
                 <h1 className="text-center">My To Do List</h1>
                 <form>
                 <div className="input-group mb-3 mt-5">
-                    <input type="text" className="form-control" name='task' onChange={(e) => setInputValue(e.target.value)} placeholder="Enter Task" aria-describedby="button-addon2"/>
-                    <button className="btn btn-primary" type="button" onClick={submitTask} id="button-addon2">Add Task</button>
+                    <input type="text" className="form-control" placeholder="Enter Task"
+                    value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                    <button className="btn btn-primary" type="button" onClick={submitTask}>Add Task</button>
                 </div>
                 </form>
                 <div className="col-12 mt-5">
@@ -32,12 +33,12 @@ const TodoInput = ({setInputValue, submitTask, store, completedTodo, deleteTask,
                         <div className="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab">
                             <ul className="todo-list list-group">
-                              <TodoIncomlited store={store} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask}/>
+                              <TodoIncomlited items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask}/>
                             </ul>
                         </div>
                         <div className="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab">
-                            <TodoComplited store={store} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask}/>
+                            <TodoComplited items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask}/>
                         </div>
                     </div>
                 </div>

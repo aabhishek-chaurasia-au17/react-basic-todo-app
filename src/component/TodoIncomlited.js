@@ -1,14 +1,15 @@
 import React from 'react'
 
-const Todoitems = ({store, completedTodo, deleteTask, editTask}) => {
+const Todoitems = ({items, completedTodo, deleteTask, editTask}) => {
 
   return (
     <>
         <div className="container">{
-            store.map((element, index) => {
+            items.map((element, index) => {
              const {task, isDone} = element || {}
              if(!isDone){
-               return <div className="row d-flex justify-content-center" key={index}>
+               return (
+                 <div className="row d-flex justify-content-center" key={index}>
                <div className="col-12">
                     <div className="card mt-3">
                     <div className="row py-2">
@@ -19,7 +20,7 @@ const Todoitems = ({store, completedTodo, deleteTask, editTask}) => {
                     </div>
                     </div>
                     </div>
-                </div>
+                </div>)
                 
             }})}
             
