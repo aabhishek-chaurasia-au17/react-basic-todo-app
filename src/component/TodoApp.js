@@ -7,6 +7,7 @@ const Todo = () => {
     const [isEditItem, setisEditItem] = useState(null)
     const [toggleSubmit, setToggleSubmit] = useState(true)
 
+
     function submitTask(e) {
         e.preventDefault()
         if(!inputValue){
@@ -18,14 +19,14 @@ const Todo = () => {
             }
             return element
           }))
-
+          
           setToggleSubmit(true);
           setInputValue('')
           setisEditItem(null)
 
         }else{
           setItems([...items, {task: inputValue, isDone: false}])
-          console.log(inputValue);
+        //   console.log(inputValue);
           setInputValue('')
         }
         
@@ -43,7 +44,7 @@ const Todo = () => {
         return index === itemIndex;
       })
       
-      setToggleSubmit(false);
+      setToggleSubmit(false)
       setInputValue(newEditItem.task)
       setisEditItem(itemIndex)
     }
@@ -54,7 +55,7 @@ const Todo = () => {
     
   return (
     <>    
-    <TodoInput setInputValue={setInputValue} submitTask={submitTask} items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask}/>   
+    <TodoInput setInputValue={setInputValue} submitTask={submitTask} items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask} show={toggleSubmit}/>   
     </>
   )
 }
