@@ -25,7 +25,7 @@ const Todo = () => {
           setisEditItem(null)
 
         }else{
-          setItems([...items, {task: inputValue, isDone: false}])
+          setItems([...items, {id: new Date().valueOf(), task: inputValue, isDone: false}])
         //   console.log(inputValue);
           setInputValue('')
         }
@@ -55,7 +55,7 @@ const Todo = () => {
     
   return (
     <>    
-    <TodoInput setInputValue={setInputValue} submitTask={submitTask} items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask} show={toggleSubmit}/>   
+    <TodoInput setInputValue={setInputValue} submitTask={submitTask} items={items} deleteTask={deleteTask} completedTodo={completedTodo} editTask={editTask} show={toggleSubmit} setToggleSubmit={setToggleSubmit}/>   
     </>
   )
 }
