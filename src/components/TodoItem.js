@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever, MdRemoveDone } from "react-icons/md";
 import { BiArchiveIn, BiEdit } from "react-icons/bi";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
@@ -46,7 +46,7 @@ const TodoItem = (props) =>{
             <div className="btn-group" role="group" aria-label="Basic mixed styles example">
             {
                !isArchived && 
-               <button className="btn btn-success complete-btn"  onClick={()=>taskToggle(id)}>{isComplete? "Undone": "Done"} <IoCheckmarkDoneSharp/> </button>
+               <button className="btn btn-success complete-btn"  onClick={()=>taskToggle(id)}>{isComplete? "Undone": `Done`} {isComplete? <MdRemoveDone/> : <IoCheckmarkDoneSharp/>}  </button>
            } 
             <button className="btn btn-danger" onClick={()=>deleteItem(id,value)}>Delete <MdDeleteForever/></button>
             {
